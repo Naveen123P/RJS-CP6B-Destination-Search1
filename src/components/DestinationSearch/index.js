@@ -80,7 +80,7 @@ class DestinationSearch extends Component {
   render() {
     const {searchInput, destinationsList} = this.state
     const SearchResult = destinationsList.filter(each =>
-      each.name.includes(searchInput),
+      each.name.toLowerCase().includes(searchInput),
     )
     return (
       <div className="bg-container1">
@@ -90,6 +90,11 @@ class DestinationSearch extends Component {
           placeholder="Search"
           value={searchInput}
           onChange={this.onChangeEvent}
+        />
+        <img
+          src="https://assets.ccbp.in/frontend/react-js/destinations-search-icon-img.png"
+          alt="search icon"
+          className="search-img"
         />
         <ul className="list-items">
           {SearchResult.map(eachItem => (
